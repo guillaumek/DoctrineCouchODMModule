@@ -19,7 +19,7 @@
 namespace DoctrineCouchODMModule\Service;
 
 use DoctrineModule\Service\AbstractFactory;
-use Doctrine\Couch\Connection;
+use Doctrine\CouchDB\Connection;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
@@ -35,7 +35,7 @@ class ConnectionFactory extends AbstractFactory
 
     /**
      * @param \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
-     * @return \Doctrine\Couch\Connection
+     * @return \Doctrine\CouchDB\Connection
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
