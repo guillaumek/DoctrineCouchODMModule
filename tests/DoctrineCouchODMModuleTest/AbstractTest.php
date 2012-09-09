@@ -14,7 +14,7 @@ abstract class AbstractTest extends PHPUnit_Framework_TestCase
 
     protected static $applicationConfig;
 
-    public function setup(){
+    protected function setup(){
 
         $this->application = Application::init(self::$applicationConfig);
         $this->serviceManager = $this->application->getServiceManager();
@@ -30,7 +30,7 @@ abstract class AbstractTest extends PHPUnit_Framework_TestCase
         return $this->serviceManager->get('doctrine.documentmanager.odm_default');
     }
 
-    public function tearDown()
+    protected function tearDown()
     {
         $collections = $this->getDocumentManager()->getConnection()->selectDatabase('doctrineCouchODMModuleTest')->listCollections();
         foreach ($collections as $collection) {

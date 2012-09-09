@@ -32,7 +32,7 @@ abstract class BaseTest extends PHPUnit_Framework_TestCase
 
     protected static $mvcConfig;
 
-    public function setup()
+    protected function setup()
     {
         $mvcConfig = $this->getMvcConfig();
 
@@ -75,7 +75,7 @@ abstract class BaseTest extends PHPUnit_Framework_TestCase
         return $this->serviceManager->get('doctrine.documentmanager.odm_default');
     }
 
-    public function tearDown()
+    protected function tearDown()
     {
         $collections = $this->getDocumentManager()->getConnection()->selectDatabase(self::DEFAULT_DB)->listCollections();
         foreach ($collections as $collection) {

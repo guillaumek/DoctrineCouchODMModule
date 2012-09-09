@@ -1,6 +1,6 @@
 # Doctrine CouchDB ODM Module for Zend Framework 2
 
-The DoctrineCouchDBODMModule integrates Doctrine 2 CouchDB ODM with Zend Framework 2
+The DoctrineCouchODMModule integrates Doctrine 2 CouchDB ODM with Zend Framework 2
 quickly and easily. The following features are intended to work out of the box:
 
   - CouchDB support

@@ -49,7 +49,7 @@
 
     "autoload": {
         "psr-0": {
-            "DoctrineCouchDBODMModule": "src/"
+            "DoctrineCouchODMModule": "src/"
         }
     }
 }
