@@ -1,14 +1,9 @@
-# Doctrine MongoDB ODM Module for Zend Framework 2
+# Doctrine CouchDB ODM Module for Zend Framework 2
 
-Master: [![Build Status](https://secure.travis-ci.org/doctrine/DoctrineMongoODMModule.png?branch=master)](http://travis-ci.org/doctrine/DoctrineMongoODMModule)
-
-The DoctrineMongoODMModule integrates Doctrine 2 MongoDB ODM with Zend Framework 2
+The DoctrineCouchDBODMModule integrates Doctrine 2 CouchDB ODM with Zend Framework 2
 quickly and easily. The following features are intended to work out of the box:
 
-  - MongoDB support
-  - Multiple document managers
-  - Multiple connections
-  - Support for using existing `Mongo` connections
+  - CouchDB support
 
 ## Requirements
 [Zend Framework 2 Application Skeleton](http://www.github.com/zendframework/ZendSkeletonApplication) (or compatible
@@ -27,7 +22,7 @@ Installation of this module uses composer. For composer documentation, please re
      ```json
      {
          "require": {
-             "doctrine/doctrine-mongo-odm-module": "dev-master"
+             "ardemiranda/doctrine-couchdb-odm-module": "dev-master"
          }
      }
      ```
@@ -38,16 +33,16 @@ Installation of this module uses composer. For composer documentation, please re
 
      ```php
      'DoctrineModule',
-     'DoctrineMongoODMModule',
+     'DoctrineCouchDBODMModule',
      ```
 
-  6. copy `vendor/doctrine/doctrine-mongo-odm-module/config/module.doctrine-mongo-odm.local.php.dist` into your application's
-     `config/autoload` directory, rename it to `module.doctrine-mongo-odm.local.php` and make the appropriate changes. 
+  6. copy `vendor/doctrine/doctrine-couchdb-odm-module/config/module.doctrine-mongo-odm.local.php.dist` into your application's
+     `config/autoload` directory, rename it to `module.doctrine-couchdb-odm.local.php` and make the appropriate changes. 
      With this config file you can configure your mongo connection, add extra annotations to register, add subscribers to
      the event manager, add filters to the filter collection, and drivers to the driver chain.
 
-  7. create directory `my/project/directory/data/DoctrineMongoODMModule/Proxy` and  
-     `my/project/directory/data/DoctrineMongoODMModule/Hydrators` and make sure your application has write access to it.
+  7. create directory `my/project/directory/data/DoctrineCouchDBODMModule/Proxy` and  
+     `my/project/directory/data/DoctrineCouchDBODMModule/Hydrators` and make sure your application has write access to it.
 
 ## Usage
 
