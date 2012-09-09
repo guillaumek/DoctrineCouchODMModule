@@ -16,12 +16,12 @@
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
  */
-namespace DoctrineMongoODMModule\Options;
+namespace DoctrineCouchDBODMModule\Options;
 
 use Zend\Stdlib\AbstractOptions;
 
 /**
- * Connection options for doctrine mongo
+ * Connection options for doctrine couchdb
  *
  * @license MIT
  * @link    http://www.doctrine-project.org/
@@ -32,7 +32,7 @@ class Connection extends AbstractOptions
 {
 
     /**
-     * The server with the mongo instance you want to connect to
+     * The server with the couchdb instance you want to connect to
      *
      * @var string
      */
@@ -43,17 +43,17 @@ class Connection extends AbstractOptions
      *
      * @var string
      */
-    protected $port = '27017';
+    protected $port = '5984';
 
     /**
-     * Username if using mongo auth
+     * Username if using couchdb auth
      *
      * @var string
      */
     protected $user = null;
 
     /**
-     * Password if using mongo auth
+     * Password if using couchdb auth
      *
      * @var string
      */
@@ -67,7 +67,7 @@ class Connection extends AbstractOptions
     protected $dbname = null;
 
     /**
-     * Further connection options defined by mongodb-odm
+     * Further connection options defined by couchdb-odm
      *
      * @var array
      */
@@ -84,7 +84,7 @@ class Connection extends AbstractOptions
     /**
      *
      * @param string $server
-     * @return \DoctrineMongoODMModule\Options\Connection
+     * @return \DoctrineCouchDBODMModule\Options\Connection
      */
     public function setServer($server) {
         $this->server = (string) $server;
@@ -102,7 +102,7 @@ class Connection extends AbstractOptions
     /**
      *
      * @param string $port
-     * @return \DoctrineMongoODMModule\Options\Connection
+     * @return \DoctrineCouchDBODMModule\Options\Connection
      */
     public function setPort($port) {
         $this->port = (string) $port;
@@ -120,7 +120,7 @@ class Connection extends AbstractOptions
     /**
      *
      * @param string $user
-     * @return \DoctrineMongoODMModule\Options\Connection
+     * @return \DoctrineCouchDBODMModule\Options\Connection
      */
     public function setUser($user) {
         $this->user = (string) $user;
@@ -138,7 +138,7 @@ class Connection extends AbstractOptions
     /**
      *
      * @param string $password
-     * @return \DoctrineMongoODMModule\Options\Connection
+     * @return \DoctrineCouchDBODMModule\Options\Connection
      */
     public function setPassword($password) {
         $this->password = (string) $password;
@@ -156,7 +156,7 @@ class Connection extends AbstractOptions
     /**
      *
      * @param string $dbname
-     * @return \DoctrineMongoODMModule\Options\Connection
+     * @return \DoctrineCouchDBODMModule\Options\Connection
      */
     public function setDbname($dbname) {
         $this->dbname = (string) $dbname;
@@ -174,7 +174,7 @@ class Connection extends AbstractOptions
     /**
      *
      * @param array $options
-     * @return \DoctrineMongoODMModule\Options\Connection
+     * @return \DoctrineCouchDBODMModule\Options\Connection
      */
     public function setOptions($options) {
         $this->options = $options;

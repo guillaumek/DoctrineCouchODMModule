@@ -1,9 +1,9 @@
 <?php
 
-namespace DoctrineMongoODMModuleTest\Doctrine;
+namespace DoctrineCouchDBODMModuleTest\Doctrine;
 
-use DoctrineMongoODMModuleTest\Assets\Document\Simple;
-use DoctrineMongoODMModuleTest\AbstractTest;
+use DoctrineCouchDBODMModuleTest\Assets\Document\Simple;
+use DoctrineCouchDBODMModuleTest\AbstractTest;
 
 class PersistTest extends AbstractTest
 {

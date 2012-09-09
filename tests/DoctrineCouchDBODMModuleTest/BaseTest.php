@@ -17,7 +17,7 @@
  * <http://www.doctrine-project.org>.
  */
 
-namespace DoctrineMongoODMModuleTest;
+namespace DoctrineCouchDBODMModuleTest;
 
 use PHPUnit_Framework_TestCase;
 use Zend\Mvc\Service\ServiceManagerConfig;
@@ -26,7 +26,7 @@ use Zend\ServiceManager\ServiceManager;
 abstract class BaseTest extends PHPUnit_Framework_TestCase
 {
 
-    const DEFAULT_DB = 'doctrineMongoODMModuleTest';
+    const DEFAULT_DB = 'doctrineCouchDBODMModuleTest';
 
     protected $serviceManager;
 
