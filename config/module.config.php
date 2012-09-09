@@ -4,11 +4,12 @@ return array(
 
         'connection' => array(
             'odm_default' => array(
-                'server'    => 'localhost',
+                'host'      => 'localhost',
                 'port'      => '5984',
                 'user'      => null,
                 'password'  => null,
                 'dbname'    => null,
+            	'ip'        => null,
                 'options'   => array()
             ),
         ),
@@ -23,10 +24,6 @@ return array(
                 'proxy_dir'          => 'data/DoctrineCouchODMModule/Proxy',
                 'proxy_namespace'    => 'DoctrineCouchODMModule\Proxy',
 
-                'generate_hydrators' => true,
-                'hydrator_dir'       => 'data/DoctrineCouchODMModule/Hydrator',
-                'hydrator_namespace' => 'DoctrineCouchODMModule\Hydrator',
-
                 'default_db'         => null,
 
                 'filters'            => array()  // array('filterName' => 'BSON\Filter\Class')
@@ -35,7 +32,7 @@ return array(
 
         'driver' => array(
             'odm_default' => array(
-                'class'   => 'Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain',
+                'class'   => 'Doctrine\ODM\CouchDB\Mapping\Driver\DriverChain',
                 'drivers' => array()
             )
         ),

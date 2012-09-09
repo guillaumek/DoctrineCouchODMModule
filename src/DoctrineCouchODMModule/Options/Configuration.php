@@ -62,27 +62,6 @@ class Configuration extends AbstractOptions
     protected $proxyNamespace = 'DoctrineCouchODMModule\Proxy';
 
     /**
-     * Automatic generation of hydrators (disable for production!)
-     *
-     * @var boolean
-     */
-    protected $generateHydrators = true;
-
-    /**
-     * Hydrator directory
-     *
-     * @var string
-     */
-    protected $hydratorDir = 'data';
-
-    /**
-     * Hydrator namespace
-     *
-     * @var string
-     */
-    protected $hydratorNamespace = 'DoctrineCouchODMModule\Hydrator';
-
-    /**
      *
      * @var string
      */
@@ -195,60 +174,6 @@ class Configuration extends AbstractOptions
     public function getProxyNamespace()
     {
         return $this->proxyNamespace;
-    }
-
-    /**
-     *
-     * @return boolean
-     */
-    public function getGenerateHydrators() {
-        return $this->generateHydrators;
-    }
-
-    /**
-     *
-     * @param boolean $generateHydrators
-     * @return \DoctrineCouchODMModule\Options\Configuration
-     */
-    public function setGenerateHydrators($generateHydrators) {
-        $this->generateHydrators = (boolean) $generateHydrators;
-        return $this;
-    }
-
-    /**
-     *
-     * @return string
-     */
-    public function getHydratorDir() {
-        return $this->hydratorDir;
-    }
-
-    /**
-     *
-     * @param string $hydratorDir
-     * @return \DoctrineCouchODMModule\Options\Configuration
-     */
-    public function setHydratorDir($hydratorDir) {
-        $this->hydratorDir = (string) $hydratorDir;
-        return $this;
-    }
-
-    /**
-     *
-     * @return string
-     */
-    public function getHydratorNamespace() {
-        return $this->hydratorNamespace;
-    }
-
-    /**
-     *
-     * @param string $hydratorNamespace
-     * @return \DoctrineCouchODMModule\Options\Configuration
-     */
-    public function setHydratorNamespace($hydratorNamespace) {
-        $this->hydratorNamespace = (string) $hydratorNamespace;
-        return $this;
     }
 
     /**

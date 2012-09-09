@@ -18,6 +18,10 @@
  */
 namespace DoctrineCouchODMModule\Service;
 
+use Doctrine\CouchDB\CouchDBClient;
+
+use Doctrine\CouchDB\HTTP\SocketClient;
+
 use DoctrineModule\Service\AbstractFactory;
 use Doctrine\CouchDB\Connection;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -42,15 +46,9 @@ class ConnectionFactory extends AbstractFactory
         /** @var $options \DoctrineCouchODMModule\Options\Connection */
         $options = $this->getOptions($serviceLocator, 'connection');
 
-        $connectionString = 'mongodb://';
-        if ($options->getUser() && $options->getPassword()) {
-            $connectionString .= $options->getUser() . ':' . $options->getPassword() . '@';
-        }
-        $connectionString .= $options->getServer() . ':' . $options->getPort();
-        if ($options->getDbName()) {
-            $connectionString .= '/' . $options->getDbName();
-        }
-        return new Connection($connectionString, $options->getOptions());
+        $httpClient = new SocketClient($options->getHost(), $options->getPort(), $options->getUser(), 
+        		$options->getPassword(), $options->getIp());
+        return new CouchDBClient($httpClient, $options->getDbname());
     }
 
     /**

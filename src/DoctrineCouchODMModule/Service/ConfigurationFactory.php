@@ -20,7 +20,7 @@ namespace DoctrineCouchODMModule\Service;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use DoctrineModule\Service\AbstractFactory;
-use Doctrine\ODM\Couch\Configuration;
+use Doctrine\ODM\CouchDB\Configuration;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
@@ -51,13 +51,8 @@ class ConfigurationFactory extends AbstractFactory
         $config->setProxyDir($options->getProxyDir());
         $config->setProxyNamespace($options->getProxyNamespace());
 
-        // hydrators
-        $config->setAutoGenerateHydratorClasses($options->getGenerateHydrators());
-        $config->setHydratorDir($options->getHydratorDir());
-        $config->setHydratorNamespace($options->getHydratorNamespace());
-
         // default db
-        $config->setDefaultDB($options->getDefaultDb());
+        //$config->setDefaultDB($options->getDefaultDb());
 
         // caching
         $config->setMetadataCacheImpl($serviceLocator->get($options->getMetadataCache()));
