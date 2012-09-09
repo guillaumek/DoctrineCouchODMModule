@@ -16,14 +16,14 @@
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
  */
-namespace DoctrineCouchDBODMModule\Service;
+namespace DoctrineCouchODMModule\Service;
 
 use DoctrineModule\Service\AbstractFactory;
-use Doctrine\ODM\CouchDB\DocumentManager;
+use Doctrine\ODM\Couch\DocumentManager;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- * Factory creates a couchdb document manager
+ * Factory creates a Couch document manager
  * 
  * @license MIT
  * @link    http://www.doctrine-project.org/
@@ -35,7 +35,7 @@ class DocumentManagerFactory extends AbstractFactory
     
     /**
      * @param \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
-     * @return \Doctrine\ODM\CouchDB\DocumentManager
+     * @return \Doctrine\ODM\Couch\DocumentManager
      */     
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
@@ -53,6 +53,6 @@ class DocumentManagerFactory extends AbstractFactory
      */
     public function getOptionsClass()
     {
-        return 'DoctrineCouchDBODMModule\Options\DocumentManager';
+        return 'DoctrineCouchODMModule\Options\DocumentManager';
     }
 }

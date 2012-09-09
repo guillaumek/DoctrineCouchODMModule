@@ -16,12 +16,12 @@
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
  */
-namespace DoctrineCouchDBODMModule\Options;
+namespace DoctrineCouchODMModule\Options;
 
 use Zend\Stdlib\AbstractOptions;
 
 /**
- * Document manager options for doctrine couchdb
+ * Document manager options for doctrine Couch
  *
  * @license MIT
  * @link    http://www.doctrine-project.org/
@@ -60,7 +60,7 @@ class DocumentManager extends AbstractOptions
     /**
      *
      * @param type $configuration
-     * @return \DoctrineCouchDBODMModule\Options\DocumentManager
+     * @return \DoctrineCouchODMModule\Options\DocumentManager
      */
     public function setConfiguration($configuration)
     {
@@ -79,7 +79,7 @@ class DocumentManager extends AbstractOptions
     /**
      *
      * @param type $connection
-     * @return \DoctrineCouchDBODMModule\Options\DocumentManager
+     * @return \DoctrineCouchODMModule\Options\DocumentManager
      */
     public function setConnection($connection)
     {
@@ -106,7 +106,7 @@ class DocumentManager extends AbstractOptions
     /**
      *
      * @param type $eventManager
-     * @return \DoctrineCouchDBODMModule\Options\DocumentManager
+     * @return \DoctrineCouchODMModule\Options\DocumentManager
      */
     public function setEventManager($eventManager) {
         $this->eventManager = (string) $eventManager;

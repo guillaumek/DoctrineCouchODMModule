@@ -5,7 +5,7 @@
     "keywords": [
         "doctrine",
         "odm",
-        "mongodb",
+        "couchdb",
         "module",
         "zf2"
     ],

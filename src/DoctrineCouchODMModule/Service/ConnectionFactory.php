@@ -16,14 +16,14 @@
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
  */
-namespace DoctrineCouchDBODMModule\Service;
+namespace DoctrineCouchODMModule\Service;
 
 use DoctrineModule\Service\AbstractFactory;
-use Doctrine\CouchDB\Connection;
+use Doctrine\Couch\Connection;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- * Factory creates a CouchDB connection
+ * Factory creates a Couch connection
  *
  * @license MIT
  * @link    http://www.doctrine-project.org/
@@ -35,11 +35,11 @@ class ConnectionFactory extends AbstractFactory
 
     /**
      * @param \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
-     * @return \Doctrine\CouchDB\Connection
+     * @return \Doctrine\Couch\Connection
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        /** @var $options \DoctrineCouchDBODMModule\Options\Connection */
+        /** @var $options \DoctrineCouchODMModule\Options\Connection */
         $options = $this->getOptions($serviceLocator, 'connection');
 
         $connectionString = 'mongodb://';
@@ -60,6 +60,6 @@ class ConnectionFactory extends AbstractFactory
      */
     public function getOptionsClass()
     {
-        return 'DoctrineCouchDBODMModule\Options\Connection';
+        return 'DoctrineCouchODMModule\Options\Connection';
     }
 }

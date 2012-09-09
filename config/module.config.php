@@ -20,12 +20,12 @@ return array(
                 'driver'             => 'odm_default',
 
                 'generate_proxies'   => true,
-                'proxy_dir'          => 'data/DoctrineCouchDBODMModule/Proxy',
-                'proxy_namespace'    => 'DoctrineCouchDBODMModule\Proxy',
+                'proxy_dir'          => 'data/DoctrineCouchODMModule/Proxy',
+                'proxy_namespace'    => 'DoctrineCouchODMModule\Proxy',
 
                 'generate_hydrators' => true,
-                'hydrator_dir'       => 'data/DoctrineCouchDBODMModule/Hydrator',
-                'hydrator_namespace' => 'DoctrineCouchDBODMModule\Hydrator',
+                'hydrator_dir'       => 'data/DoctrineCouchODMModule/Hydrator',
+                'hydrator_namespace' => 'DoctrineCouchODMModule\Hydrator',
 
                 'default_db'         => null,
 

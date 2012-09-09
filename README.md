@@ -23,7 +23,7 @@ Installation of this module uses composer. For composer documentation, please re
      {
          "minimum-stability": "alpha",
          "require": {
-             "ardemiranda/doctrine-couchdb-odm-module": "dev-master"
+             "ardemiranda/doctrine-couch-odm-module": "dev-master"
          }
      }
      ```
@@ -34,7 +34,7 @@ Installation of this module uses composer. For composer documentation, please re
 
      ```php
      'DoctrineModule',
-     'DoctrineCouchDBODMModule',
+     'DoctrineCouchODMModule',
      ```
 
   6. copy `vendor/doctrine/doctrine-mongo-odm-module/config/module.doctrine-mongo-odm.local.php.dist` into your application's
