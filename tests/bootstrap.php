@@ -8,4 +8,4 @@ $loader->add('DoctrineCouchODMModuleTest', __DIR__);
 
 $config = include(__DIR__ . '/test.application.config.php');
 
-\DoctrineMongoODMModuleTest\AbstractTest::setApplicationConfig($config);
+\DoctrineCouchODMModuleTest\AbstractTest::setApplicationConfig($config);
