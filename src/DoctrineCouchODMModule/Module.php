@@ -17,10 +17,10 @@
  * <http://www.doctrine-project.org>.
  */
 
-namespace DoctrineCouchDBODMModule;
+namespace DoctrineCouchODMModule;
 
 use DoctrineModule\Service as CommonService;
-use DoctrineCouchDBODMModule\Service as ODMService;
+use DoctrineCouchODMModule\Service as ODMService;
 use Zend\EventManager\EventInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
@@ -30,7 +30,7 @@ use Zend\Loader\AutoloaderFactory;
 use Zend\Loader\StandardAutoloader;
 
 /**
- * Doctrine Module provider for CouchDB DB ODM.
+ * Doctrine Module provider for Couch DB ODM.
  *
  * @license MIT
  * @link    http://www.doctrine-project.org
@@ -60,7 +60,7 @@ class Module implements BootstrapListenerInterface, AutoloaderProviderInterface,
     {
         $cli = $event->getTarget();
         $cli->addCommands(array(
-            new \Doctrine\ODM\CouchDB\Tools\Console\Command\UpdateDesignDocCommand()
+            new \Doctrine\ODM\Couch\Tools\Console\Command\UpdateDesignDocCommand()
         ));
     }
 
@@ -93,7 +93,7 @@ class Module implements BootstrapListenerInterface, AutoloaderProviderInterface,
     {
         return array(
             'aliases' => array(
-                'Doctrine\ODM\CouchDB\DocumentManager' => 'doctrine.documentmanager.odm_default',
+                'Doctrine\ODM\Couch\DocumentManager' => 'doctrine.documentmanager.odm_default',
             ),
             'factories' => array(
                 'doctrine.authenticationadapter.odm_default'  => new CommonService\AuthenticationAdapterFactory('odm_default'),

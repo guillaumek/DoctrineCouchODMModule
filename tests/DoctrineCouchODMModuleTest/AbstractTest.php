@@ -1,6 +1,6 @@
 <?php
 
-namespace DoctrineCouchDBODMModuleTest;
+namespace DoctrineCouchODMModuleTest;
 
 use PHPUnit_Framework_TestCase;
 use Zend\Mvc\Application;
@@ -32,7 +32,7 @@ abstract class AbstractTest extends PHPUnit_Framework_TestCase
 
     public function tearDown()
     {
-        $collections = $this->getDocumentManager()->getConnection()->selectDatabase('doctrineCouchDBODMModuleTest')->listCollections();
+        $collections = $this->getDocumentManager()->getConnection()->selectDatabase('doctrineCouchODMModuleTest')->listCollections();
         foreach ($collections as $collection) {
             $collection->remove(array(), array('safe' => true));
         }

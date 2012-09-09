@@ -16,12 +16,12 @@
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
  */
-namespace DoctrineCouchDBODMModule\Options;
+namespace DoctrineCouchODMModule\Options;
 
 use Zend\Stdlib\AbstractOptions;
 
 /**
- * Connection options for doctrine couchdb
+ * Connection options for doctrine Couch
  *
  * @license MIT
  * @link    http://www.doctrine-project.org/
@@ -32,7 +32,7 @@ class Connection extends AbstractOptions
 {
 
     /**
-     * The server with the couchdb instance you want to connect to
+     * The server with the Couch instance you want to connect to
      *
      * @var string
      */
@@ -46,14 +46,14 @@ class Connection extends AbstractOptions
     protected $port = '5984';
 
     /**
-     * Username if using couchdb auth
+     * Username if using Couch auth
      *
      * @var string
      */
     protected $user = null;
 
     /**
-     * Password if using couchdb auth
+     * Password if using Couch auth
      *
      * @var string
      */
@@ -67,7 +67,7 @@ class Connection extends AbstractOptions
     protected $dbname = null;
 
     /**
-     * Further connection options defined by couchdb-odm
+     * Further connection options defined by Couch-odm
      *
      * @var array
      */
@@ -84,7 +84,7 @@ class Connection extends AbstractOptions
     /**
      *
      * @param string $server
-     * @return \DoctrineCouchDBODMModule\Options\Connection
+     * @return \DoctrineCouchODMModule\Options\Connection
      */
     public function setServer($server) {
         $this->server = (string) $server;
@@ -102,7 +102,7 @@ class Connection extends AbstractOptions
     /**
      *
      * @param string $port
-     * @return \DoctrineCouchDBODMModule\Options\Connection
+     * @return \DoctrineCouchODMModule\Options\Connection
      */
     public function setPort($port) {
         $this->port = (string) $port;
@@ -120,7 +120,7 @@ class Connection extends AbstractOptions
     /**
      *
      * @param string $user
-     * @return \DoctrineCouchDBODMModule\Options\Connection
+     * @return \DoctrineCouchODMModule\Options\Connection
      */
     public function setUser($user) {
         $this->user = (string) $user;
@@ -138,7 +138,7 @@ class Connection extends AbstractOptions
     /**
      *
      * @param string $password
-     * @return \DoctrineCouchDBODMModule\Options\Connection
+     * @return \DoctrineCouchODMModule\Options\Connection
      */
     public function setPassword($password) {
         $this->password = (string) $password;
@@ -156,7 +156,7 @@ class Connection extends AbstractOptions
     /**
      *
      * @param string $dbname
-     * @return \DoctrineCouchDBODMModule\Options\Connection
+     * @return \DoctrineCouchODMModule\Options\Connection
      */
     public function setDbname($dbname) {
         $this->dbname = (string) $dbname;
@@ -174,7 +174,7 @@ class Connection extends AbstractOptions
     /**
      *
      * @param array $options
-     * @return \DoctrineCouchDBODMModule\Options\Connection
+     * @return \DoctrineCouchODMModule\Options\Connection
      */
     public function setOptions($options) {
         $this->options = $options;

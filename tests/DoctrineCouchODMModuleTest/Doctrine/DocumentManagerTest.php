@@ -1,9 +1,9 @@
 <?php
 
-namespace DoctrineCouchDBODMModuleTest\Doctrine;
+namespace DoctrineCouchODMModuleTest\Doctrine;
 
-use Doctrine\ODM\CouchDB\DocumentManager;
-use DoctrineCouchDBODMModuleTest\AbstractTest;
+use Doctrine\ODM\Couch\DocumentManager;
+use DoctrineCouchODMModuleTest\AbstractTest;
 
 class DocumentManagerTest extends AbstractTest{
 
