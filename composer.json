@@ -1,5 +1,5 @@
 {
-    "name": "ardemiranda/doctrine-couchdb-odm-module",
+    "name": "ardemiranda/doctrine-couch-odm-module",
     "description": "Zend Framework 2 Module that provides Doctrine CouchDB ODM functionality",
     "type": "library",
     "keywords": [
@@ -9,7 +9,6 @@
         "module",
         "zf2"
     ],
-    "homepage": "http://www.doctrine-project.org/",
     "license": "MIT",
     "authors": [
         {
