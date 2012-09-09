@@ -19,7 +19,7 @@
 namespace DoctrineCouchODMModule\Service;
 
 use DoctrineModule\Service\AbstractFactory;
-use Doctrine\ODM\Couch\DocumentManager;
+use Doctrine\ODM\CouchDB\DocumentManager;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**

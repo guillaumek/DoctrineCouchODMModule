@@ -36,7 +36,7 @@ class Connection extends AbstractOptions
      *
      * @var string
      */
-    protected $server = 'localhost';
+    protected $host = 'localhost';
 
     /**
      * Port to connect over
@@ -65,6 +65,13 @@ class Connection extends AbstractOptions
      * @var string
      */
     protected $dbname = null;
+    
+    /**
+     * If you want to connect to a specific ip
+     *
+     * @var string
+     */
+    protected $ip = null;
 
     /**
      * Further connection options defined by Couch-odm
@@ -77,8 +84,8 @@ class Connection extends AbstractOptions
      *
      * @return string
      */
-    public function getServer() {
-        return $this->server;
+    public function getHost() {
+        return $this->host;
     }
 
     /**
@@ -86,8 +93,8 @@ class Connection extends AbstractOptions
      * @param string $server
      * @return \DoctrineCouchODMModule\Options\Connection
      */
-    public function setServer($server) {
-        $this->server = (string) $server;
+    public function setHost($host) {
+        $this->host = (string) $host;
         return $this;
     }
 
@@ -161,6 +168,24 @@ class Connection extends AbstractOptions
     public function setDbname($dbname) {
         $this->dbname = (string) $dbname;
         return $this;
+    }
+    
+    /**
+     *
+     * @return string
+     */
+    public function getIp() {
+    	return $this->ip;
+    }
+    
+    /**
+     *
+     * @param string $ip
+     * @return \DoctrineCouchODMModule\Options\Connection
+     */
+    public function setIp($ip) {
+    	$this->ip = (string) $ip;
+    	return $this;
     }
 
     /**
