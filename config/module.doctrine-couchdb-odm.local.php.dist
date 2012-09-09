@@ -20,12 +20,12 @@ return array(
 //                'driver'             => 'odm_default',
 //
 //                'generate_proxies'   => true,
-//                'proxy_dir'          => 'data/DoctrineMongoODMModule/Proxy',
-//                'proxy_namespace'    => 'DoctrineMongoODMModule\Proxy',
+//                'proxy_dir'          => 'data/DoctrineCouchDBODMModule/Proxy',
+//                'proxy_namespace'    => 'DoctrineCouchDBODMModule\Proxy',
 //
 //                'generate_hydrators' => true,
-//                'hydrator_dir'       => 'data/DoctrineMongoODMModule/Hydrator',
-//                'hydrator_namespace' => 'DoctrineMongoODMModule\Hydrator',
+//                'hydrator_dir'       => 'data/DoctrineCouchDBODMModule/Hydrator',
+//                'hydrator_namespace' => 'DoctrineCouchDBODMModule\Hydrator',
 //
 //                'default_db'         => null,
 //

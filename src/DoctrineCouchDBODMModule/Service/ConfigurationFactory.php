@@ -16,15 +16,15 @@
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
  */
-namespace DoctrineMongoODMModule\Service;
+namespace DoctrineCouchDBODMModule\Service;
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use DoctrineModule\Service\AbstractFactory;
-use Doctrine\ODM\MongoDB\Configuration;
+use Doctrine\ODM\CouchDB\Configuration;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- * Factory to create MongoDB configuration object.
+ * Factory to create CouchDB configuration object.
  *
  * @license MIT
  * @link    http://www.doctrine-project.org/
@@ -36,12 +36,12 @@ class ConfigurationFactory extends AbstractFactory
 
     /**
      * @param \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
-     * @return \Doctrine\ODM\MongoDB\Configuration
+     * @return \Doctrine\ODM\CouchDB\Configuration
      * @throws \Exception
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        /** @var $options \DoctrineMongoODMModule\Options\Configuration */
+        /** @var $options \DoctrineCouchDBODMModule\Options\Configuration */
         $options = $this->getOptions($serviceLocator, 'configuration');
 
         $config = new Configuration;
@@ -75,6 +75,6 @@ class ConfigurationFactory extends AbstractFactory
 
     public function getOptionsClass()
     {
-        return 'DoctrineMongoODMModule\Options\Configuration';
+        return 'DoctrineCouchDBODMModule\Options\Configuration';
     }
 }

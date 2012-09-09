@@ -16,41 +16,34 @@
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
  */
-namespace DoctrineMongoODMModule\Service;
+namespace DoctrineCouchDBODMModule\Service;
 
 use DoctrineModule\Service\AbstractFactory;
-use Doctrine\MongoDB\Connection;
+use Doctrine\ODM\CouchDB\DocumentManager;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- * Factory creates a mongo connection
- *
+ * Factory creates a couchdb document manager
+ * 
  * @license MIT
  * @link    http://www.doctrine-project.org/
  * @since   0.1.0
  * @author  Tim Roediger <superdweebie@gmail.com>
  */
-class ConnectionFactory extends AbstractFactory
+class DocumentManagerFactory extends AbstractFactory
 {
-
+    
     /**
      * @param \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
-     * @return \Doctrine\MongoDB\Connection
-     */
+     * @return \Doctrine\ODM\CouchDB\DocumentManager
+     */     
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        /** @var $options \DoctrineMongoODMModule\Options\Connection */
-        $options = $this->getOptions($serviceLocator, 'connection');
-
-        $connectionString = 'mongodb://';
-        if ($options->getUser() && $options->getPassword()) {
-            $connectionString .= $options->getUser() . ':' . $options->getPassword() . '@';
-        }
-        $connectionString .= $options->getServer() . ':' . $options->getPort();
-        if ($options->getDbName()) {
-            $connectionString .= '/' . $options->getDbName();
-        }
-        return new Connection($connectionString, $options->getOptions());
+        $options      = $this->getOptions($serviceLocator, 'documentmanager');
+        $connection   = $serviceLocator->get($options->getConnection());
+        $config       = $serviceLocator->get($options->getConfiguration());
+        $eventManager = $serviceLocator->get($options->getEventManager());
+        return DocumentManager::create($connection, $config, $eventManager);
     }
 
     /**
@@ -60,6 +53,6 @@ class ConnectionFactory extends AbstractFactory
      */
     public function getOptionsClass()
     {
-        return 'DoctrineMongoODMModule\Options\Connection';
+        return 'DoctrineCouchDBODMModule\Options\DocumentManager';
     }
 }

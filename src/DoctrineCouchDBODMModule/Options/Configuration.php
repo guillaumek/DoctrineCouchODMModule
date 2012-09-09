@@ -16,12 +16,12 @@
  * and is licensed under the MIT license. For more information, see
  * <http://www.doctrine-project.org>.
  */
-namespace DoctrineMongoODMModule\Options;
+namespace DoctrineCouchDBODMModule\Options;
 
 use Zend\Stdlib\AbstractOptions;
 
 /**
- * Configuration options for doctrine mongo
+ * Configuration options for doctrine couchdb
  *
  * @license MIT
  * @link    http://www.doctrine-project.org/
@@ -59,7 +59,7 @@ class Configuration extends AbstractOptions
      *
      * @var string
      */
-    protected $proxyNamespace = 'DoctrineMongoODMModule\Proxy';
+    protected $proxyNamespace = 'DoctrineCouchDBODMModule\Proxy';
 
     /**
      * Automatic generation of hydrators (disable for production!)
@@ -80,7 +80,7 @@ class Configuration extends AbstractOptions
      *
      * @var string
      */
-    protected $hydratorNamespace = 'DoctrineMongoODMModule\Hydrator';
+    protected $hydratorNamespace = 'DoctrineCouchDBODMModule\Hydrator';
 
     /**
      *
@@ -105,7 +105,7 @@ class Configuration extends AbstractOptions
     /**
      *
      * @param string $driver
-     * @return \DoctrineMongoODMModule\Options\Configuration
+     * @return \DoctrineCouchDBODMModule\Options\Configuration
      */
     public function setDriver($driver)
     {
@@ -124,7 +124,7 @@ class Configuration extends AbstractOptions
     /**
      *
      * @param boolean $generateProxies
-     * @return \DoctrineMongoODMModule\Options\Configuration
+     * @return \DoctrineCouchDBODMModule\Options\Configuration
      */
     public function setGenerateProxies($generateProxies)
     {
@@ -143,7 +143,7 @@ class Configuration extends AbstractOptions
     /**
      *
      * @param string $metadataCache
-     * @return \DoctrineMongoODMModule\Options\Configuration
+     * @return \DoctrineCouchDBODMModule\Options\Configuration
      */
     public function setMetadataCache($metadataCache)
     {
@@ -162,7 +162,7 @@ class Configuration extends AbstractOptions
     /**
      *
      * @param string $proxyDir
-     * @return \DoctrineMongoODMModule\Options\Configuration
+     * @return \DoctrineCouchDBODMModule\Options\Configuration
      */
     public function setProxyDir($proxyDir)
     {
@@ -181,7 +181,7 @@ class Configuration extends AbstractOptions
     /**
      *
      * @param string $proxyNamespace
-     * @return \DoctrineMongoODMModule\Options\Configuration
+     * @return \DoctrineCouchDBODMModule\Options\Configuration
      */
     public function setProxyNamespace($proxyNamespace)
     {
@@ -208,7 +208,7 @@ class Configuration extends AbstractOptions
     /**
      *
      * @param boolean $generateHydrators
-     * @return \DoctrineMongoODMModule\Options\Configuration
+     * @return \DoctrineCouchDBODMModule\Options\Configuration
      */
     public function setGenerateHydrators($generateHydrators) {
         $this->generateHydrators = (boolean) $generateHydrators;
@@ -226,7 +226,7 @@ class Configuration extends AbstractOptions
     /**
      *
      * @param string $hydratorDir
-     * @return \DoctrineMongoODMModule\Options\Configuration
+     * @return \DoctrineCouchDBODMModule\Options\Configuration
      */
     public function setHydratorDir($hydratorDir) {
         $this->hydratorDir = (string) $hydratorDir;
@@ -244,7 +244,7 @@ class Configuration extends AbstractOptions
     /**
      *
      * @param string $hydratorNamespace
-     * @return \DoctrineMongoODMModule\Options\Configuration
+     * @return \DoctrineCouchDBODMModule\Options\Configuration
      */
     public function setHydratorNamespace($hydratorNamespace) {
         $this->hydratorNamespace = (string) $hydratorNamespace;
@@ -262,7 +262,7 @@ class Configuration extends AbstractOptions
     /**
      *
      * @param string $defaultDb
-     * @return \DoctrineMongoODMModule\Options\Configuration
+     * @return \DoctrineCouchDBODMModule\Options\Configuration
      */
     public function setDefaultDb($defaultDb) {
         $this->defaultDb = (string) $defaultDb;
@@ -280,7 +280,7 @@ class Configuration extends AbstractOptions
     /**
      *
      * @param array $filters
-     * @return \DoctrineMongoODMModule\Options\Configuration
+     * @return \DoctrineCouchDBODMModule\Options\Configuration
      */
     public function setFilters(array $filters) {
         $this->filters = $filters;

@@ -17,10 +17,10 @@
  * <http://www.doctrine-project.org>.
  */
 
-namespace DoctrineMongoODMModule;
+namespace DoctrineCouchDBODMModule;
 
 use DoctrineModule\Service as CommonService;
-use DoctrineMongoODMModule\Service as ODMService;
+use DoctrineCouchDBODMModule\Service as ODMService;
 use Zend\EventManager\EventInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
@@ -30,7 +30,7 @@ use Zend\Loader\AutoloaderFactory;
 use Zend\Loader\StandardAutoloader;
 
 /**
- * Doctrine Module provider for Mongo DB ODM.
+ * Doctrine Module provider for CouchDB DB ODM.
  *
  * @license MIT
  * @link    http://www.doctrine-project.org
@@ -60,18 +60,8 @@ class Module implements BootstrapListenerInterface, AutoloaderProviderInterface,
     {
         $cli = $event->getTarget();
         $cli->addCommands(array(
-            new \Doctrine\ODM\MongoDB\Tools\Console\Command\QueryCommand(),
-            new \Doctrine\ODM\MongoDB\Tools\Console\Command\GenerateDocumentsCommand(),
-            new \Doctrine\ODM\MongoDB\Tools\Console\Command\GenerateRepositoriesCommand(),
-            new \Doctrine\ODM\MongoDB\Tools\Console\Command\GenerateProxiesCommand(),
-            new \Doctrine\ODM\MongoDB\Tools\Console\Command\GenerateHydratorsCommand(),
-            new \Doctrine\ODM\MongoDB\Tools\Console\Command\Schema\CreateCommand(),
-            new \Doctrine\ODM\MongoDB\Tools\Console\Command\Schema\DropCommand(),
+            new \Doctrine\ODM\CouchDB\Tools\Console\Command\UpdateDesignDocCommand()
         ));
-
-        $documentManager = $event->getParam('ServiceManager')->get('doctrine.documentmanager.odm_default');
-        $documentHelper  = new \Doctrine\ODM\MongoDB\Tools\Console\Helper\DocumentManagerHelper($documentManager);
-        $cli->getHelperSet()->set($documentHelper, 'dm');
     }
 
     /**
@@ -103,7 +93,7 @@ class Module implements BootstrapListenerInterface, AutoloaderProviderInterface,
     {
         return array(
             'aliases' => array(
-                'Doctrine\ODM\Mongo\DocumentManager' => 'doctrine.documentmanager.odm_default',
+                'Doctrine\ODM\CouchDB\DocumentManager' => 'doctrine.documentmanager.odm_default',
             ),
             'factories' => array(
                 'doctrine.authenticationadapter.odm_default'  => new CommonService\Authentication\AdapterFactory('odm_default'),
