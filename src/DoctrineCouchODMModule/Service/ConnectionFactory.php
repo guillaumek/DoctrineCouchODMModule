@@ -17,11 +17,8 @@
  * <http://www.doctrine-project.org>.
  */
 namespace DoctrineCouchODMModule\Service;
-
+use Doctrine\CouchDB\HTTP\StreamClient;
 use Doctrine\CouchDB\CouchDBClient;
-
-use Doctrine\CouchDB\HTTP\SocketClient;
-
 use DoctrineModule\Service\AbstractFactory;
 use Doctrine\CouchDB\Connection;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -46,7 +43,7 @@ class ConnectionFactory extends AbstractFactory
         /** @var $options \DoctrineCouchODMModule\Options\Connection */
         $options = $this->getOptions($serviceLocator, 'connection');
 
-        $httpClient = new SocketClient($options->getHost(), $options->getPort(), $options->getUser(), 
+        $httpClient = new StreamClient($options->getHost(), $options->getPort(), $options->getUser(), 
         		$options->getPassword(), $options->getIp());
         return new CouchDBClient($httpClient, $options->getDbname());
     }
