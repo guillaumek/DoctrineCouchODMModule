@@ -5,7 +5,7 @@ return array(
         'connection' => array(
             'odm_default' => array(
 //                'host'      => 'localhost',
-//                'port'      => '27017',
+//                'port'      => '5984',
 //                'user'      => null,
 //                'password'  => null,
 //                'dbname'    => null,
