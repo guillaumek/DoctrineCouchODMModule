@@ -43,7 +43,7 @@
     "require": {
         "php": ">=5.3.3",
         "doctrine/doctrine-module": "0.*",
-        "doctrine/couchdb-odm": "1.*",
+        "doctrine/couchdb-odm": "dev-master",
         "zendframework/zendframework": "2.*"
     },
     "autoload": {
