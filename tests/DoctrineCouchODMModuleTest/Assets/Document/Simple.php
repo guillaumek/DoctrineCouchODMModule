@@ -1,8 +1,8 @@
 <?php
 
-namespace DoctrineMongoODMModuleTest\Assets\Document;
+namespace DoctrineCouchODMModuleTest\Assets\Document;
 
-use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
+use Doctrine\ODM\CouchDB\Mapping\Annotations as ODM;
 
 /** @ODM\Document */
 class Simple {

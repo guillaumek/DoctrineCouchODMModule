@@ -37,13 +37,13 @@ Installation of this module uses composer. For composer documentation, please re
      'DoctrineCouchODMModule',
      ```
 
-  6. copy `vendor/doctrine/doctrine-mongo-odm-module/config/module.doctrine-mongo-odm.local.php.dist` into your application's
-     `config/autoload` directory, rename it to `module.doctrine-mongo-odm.local.php` and make the appropriate changes.
-     With this config file you can configure your mongo connection, add extra annotations to register, add subscribers to
+  6. copy `vendor/doctrine/doctrine-couch-odm-module/config/module.doctrine-couch-odm.local.php.dist` into your application's
+     `config/autoload` directory, rename it to `module.doctrine-couch-odm.local.php` and make the appropriate changes.
+     With this config file you can configure your couch connection, add extra annotations to register, add subscribers to
      the event manager, add filters to the filter collection, and drivers to the driver chain.
 
-  7. create directory `my/project/directory/data/DoctrineMongoODMModule/Proxy` and
-     `my/project/directory/data/DoctrineMongoODMModule/Hydrators` and make sure your application has write access to it.
+  7. create directory `my/project/directory/data/DoctrineCouchODMModule/Proxy` and
+     `my/project/directory/data/DoctrineCouchODMModule/Hydrators` and make sure your application has write access to it.
 
 ## Usage
 

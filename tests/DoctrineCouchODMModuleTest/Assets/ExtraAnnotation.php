@@ -1,6 +1,6 @@
 <?php
 
-namespace DoctrineMongoODMModuleTest\Assets;
+namespace DoctrineCouchODMModuleTest\Assets;
 
 use Doctrine\Common\Annotations\Annotation;
 

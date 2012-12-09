@@ -1,8 +1,8 @@
 <?php
 
-namespace DoctrineMongoODMModuleTest\Doctrine;
+namespace DoctrineCouchODMModuleTest\Doctrine;
 
-use DoctrineMongoODMModuleTest\AbstractTest;
+use DoctrineCouchODMModuleTest\AbstractTest;
 
 class AuthenticationServiceFactoryTest extends AbstractTest
 {

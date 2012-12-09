@@ -2,11 +2,11 @@
 return array(
     'modules' => array(
         'DoctrineModule',
-        'DoctrineMongoODMModule',
+        'DoctrineCouchODMModule',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(
-            'vendor/doctrine/doctrine-mongo-odm-module/tests/test.module.config.php',
+            'vendor/doctrine/doctrine-couch-odm-module/tests/test.module.config.php',
         ),
         'module_paths' => array(
             './vendor',
