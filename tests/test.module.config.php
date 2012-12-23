@@ -1,9 +1,16 @@
 <?php
 return array(
     'doctrine' => array(
+    	'connection' => array(
+    		'odm_default' => array(
+    			'host' => 'localhost',
+    			'ip' => '127.0.0.1',
+    			'dbname' => 'doctrine_couch_odm_module_test'
+    		)
+    	),
         'configuration' => array(
             'odm_default' => array(
-                'default_db' => 'doctrineCouchODMModuleTest'
+                'default_db' => 'doctrine_couch_odm_module_test',
             )
         ),
         'driver' => array(

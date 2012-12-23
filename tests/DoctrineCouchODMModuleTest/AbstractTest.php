@@ -10,7 +10,7 @@ abstract class AbstractTest extends PHPUnit_Framework_TestCase
 
     protected $application;
     protected $serviceManager;
-
+	protected $couchDBClient;
 
     protected static $applicationConfig;
 
@@ -18,6 +18,11 @@ abstract class AbstractTest extends PHPUnit_Framework_TestCase
 
         $this->application = Application::init(self::$applicationConfig);
         $this->serviceManager = $this->application->getServiceManager();
+        
+        $this->couchDBClient = $this->getDocumentManager()->getCouchDBClient();
+        $couchDBClient = $this->couchDBClient;
+        $couchDBClient->deleteDatabase($couchDBClient->getDatabase());
+        $couchDBClient->createDatabase($couchDBClient->getDatabase());
     }
 
     public static function setApplicationConfig($applicationConfig)
@@ -32,6 +37,8 @@ abstract class AbstractTest extends PHPUnit_Framework_TestCase
 
     protected function tearDown()
     {
+    	$this->couchDBClient->deleteDatabase($this->couchDBClient->getDatabase());
+    	return ;
         $collections = $this->getDocumentManager()->getConnection()->selectDatabase('doctrineCouchODMModuleTest')->listCollections();
         foreach ($collections as $collection) {
             $collection->remove(array(), array('safe' => true));

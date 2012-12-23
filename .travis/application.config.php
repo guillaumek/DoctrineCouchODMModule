@@ -2,7 +2,7 @@
 return array(
     'modules' => array(
         'DoctrineModule',
-        'DoctrineMongoODMModule'
+        'DoctrineCouchODMModule'
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(

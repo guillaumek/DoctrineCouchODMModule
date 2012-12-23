@@ -83,6 +83,12 @@ class Configuration extends AbstractOptions
 
     /**
      *
+     * @var \DoctrineCouchODMModule\Logging\Logger
+     */
+    protected $logger;
+
+    /**
+     *
      * @param string $driver
      * @return \DoctrineCouchODMModule\Options\Configuration
      */
@@ -210,5 +216,25 @@ class Configuration extends AbstractOptions
     public function setFilters(array $filters) {
         $this->filters = $filters;
         return $this;
+    }
+
+    /**
+     *
+     * @param \DoctrineCouchODMModule\Logging\Logger $logger
+     * @return \DoctrineCouchODMModule\Options\Configuration
+     */
+    public function setLogger($logger)
+    {
+        $this->logger = $logger;
+        return $this;
+    }
+
+    /**
+     *
+     * @return \DoctrineCouchODMModule\Logging\Logger
+     */
+    public function getLogger()
+    {
+        return $this->logger;
     }
 }

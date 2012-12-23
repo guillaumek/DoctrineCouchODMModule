@@ -42,8 +42,7 @@ Installation of this module uses composer. For composer documentation, please re
      With this config file you can configure your couch connection, add extra annotations to register, add subscribers to
      the event manager, add filters to the filter collection, and drivers to the driver chain.
 
-  7. create directory `my/project/directory/data/DoctrineCouchODMModule/Proxy` and
-     `my/project/directory/data/DoctrineCouchODMModule/Hydrators` and make sure your application has write access to it.
+  7. create directory `my/project/directory/data/DoctrineMongoODMModule/Proxy`
 
 ## Usage
 

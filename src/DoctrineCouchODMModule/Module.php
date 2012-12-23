@@ -21,11 +21,14 @@ namespace DoctrineCouchODMModule;
 
 use DoctrineModule\Service as CommonService;
 use DoctrineCouchODMModule\Service as ODMService;
+
 use Zend\EventManager\EventInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
+use Zend\ModuleManager\Feature\InitProviderInterface;
+use Zend\ModuleManager\ModuleManagerInterface;
 use Zend\Loader\AutoloaderFactory;
 use Zend\Loader\StandardAutoloader;
 
@@ -37,8 +40,24 @@ use Zend\Loader\StandardAutoloader;
  * @since   0.1.0
  * @author  Tim Roediger <superdweebie@gmail.com>
  */
-class Module implements BootstrapListenerInterface, AutoloaderProviderInterface, ConfigProviderInterface, ServiceProviderInterface
+class Module implements
+    BootstrapListenerInterface,
+    AutoloaderProviderInterface,
+    ConfigProviderInterface,
+    ServiceProviderInterface,
+    InitProviderInterface
 {
+    /**
+     * {@inheritDoc}
+     */
+    public function init(ModuleManagerInterface $manager)
+    {
+        $events = $manager->getEventManager();
+        // Initialize logger collector once the profiler is initialized itself
+        $events->attach('profiler_init', function(EventInterface $e) use ($manager) {
+            $manager->getEvent()->getParam('ServiceManager')->get('doctrine.couch_logger_collector.odm_default');
+        });
+    }
 
     /**
      * {@inheritDoc}
@@ -92,6 +111,11 @@ class Module implements BootstrapListenerInterface, AutoloaderProviderInterface,
     public function getServiceConfig()
     {
         return array(
+            'invokables' => array(
+                'DoctrineCouchODMModule\Logging\DebugStack'  => 'DoctrineCouchODMModule\Logging\DebugStack',
+                'DoctrineCouchODMModule\Logging\LoggerChain' => 'DoctrineCouchODMModule\Logging\LoggerChain',
+                'DoctrineCouchODMModule\Logging\EchoLogger'  => 'DoctrineCouchODMModule\Logging\EchoLogger',
+            ),
             'aliases' => array(
                 'Doctrine\ODM\Couch\DocumentManager' => 'doctrine.documentmanager.odm_default',
             ),
@@ -104,6 +128,7 @@ class Module implements BootstrapListenerInterface, AutoloaderProviderInterface,
                 'doctrine.driver.odm_default'          => new CommonService\DriverFactory('odm_default'),
                 'doctrine.documentmanager.odm_default' => new ODMService\DocumentManagerFactory('odm_default'),
                 'doctrine.eventmanager.odm_default'    => new CommonService\EventManagerFactory('odm_default'),
+                'doctrine.couch_logger_collector.odm_default' => new ODMService\CouchLoggerCollectorFactory('odm_default'),
             )
         );
     }

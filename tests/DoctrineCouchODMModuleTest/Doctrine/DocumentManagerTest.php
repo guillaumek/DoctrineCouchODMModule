@@ -2,7 +2,7 @@
 
 namespace DoctrineCouchODMModuleTest\Doctrine;
 
-use Doctrine\ODM\Couch\DocumentManager;
+use Doctrine\ODM\CouchDB\DocumentManager;
 use DoctrineCouchODMModuleTest\AbstractTest;
 
 class DocumentManagerTest extends AbstractTest{
