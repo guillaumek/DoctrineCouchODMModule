@@ -77,7 +77,12 @@
             <span class="zdt-detail-value ddt-detail-query ddt-detail-value">
                 <?php if (isset($request['response']) && is_array($request['response']) && !empty($request['response'])): ?>
                     <?php foreach($request['response'] as $key => $value): ?>
-                        <?php echo "<strong>{$key}:</strong>"; print_r($value); "<br />" ?>
+                        <?php
+                        	echo "<strong>{$key}:</strong>"; 
+                        	$print = print_r($value, true);
+                        	echo strlen($print) > 500 ? substr($print, 0, 500) : $print;  
+                        ?>
+                        <br />
                     <?php endforeach ?>
                 <?php endif ?>
             </span>
@@ -86,7 +91,7 @@
             <span class="zdt-detail-value ddt-detail-query ddt-detail-value">
                 <?php if (isset($request['response_headers']) && is_array($request['response_headers']) && !empty($request['response_headers'])): ?>
                     <?php foreach($request['response_headers'] as $key => $value): ?>
-                        <?php echo "&nbsp;<strong>{$key}:</strong> "; print_r($value); echo " <br />"; ?>
+                        <?php echo "&nbsp;<strong>{$key}:</strong> "; print_r($value); ?><br />
                     <?php endforeach ?>
                 <?php endif ?>
             </span>
