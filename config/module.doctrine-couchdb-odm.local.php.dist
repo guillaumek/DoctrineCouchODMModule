@@ -4,6 +4,7 @@ return array(
 
         'connection' => array(
             'odm_default' => array(
+//            	  'type'      => 'socket',
 //                'host'      => 'localhost',
 //                'port'      => '5984',
 //                'user'      => null,

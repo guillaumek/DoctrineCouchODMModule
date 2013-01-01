@@ -21,10 +21,11 @@ namespace DoctrineCouchODMModule\Service;
 
 use DoctrineModule\Service\AbstractFactory;
 
+use Doctrine\CouchDB\HTTP\LoggingClient;
+
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 use DoctrineCouchODMModule\Collector\CouchLoggerCollector;
-
 use DoctrineCouchODMModule\Logging\DebugStack;
 use DoctrineCouchODMModule\Logging\LoggerChain;
 
@@ -56,7 +57,7 @@ class CouchLoggerCollectorFactory extends AbstractFactory
     {
         /** @var $options \DoctrineCouchODMModule\Options\CouchLoggerCollector */
         $options = $this->getOptions($serviceLocator, 'couch_logger_collector');
-
+        
         if ($options->getCouchLogger()) {
             $debugStackLogger = $serviceLocator->get($options->getCouchLogger());
         } else {
@@ -65,25 +66,32 @@ class CouchLoggerCollectorFactory extends AbstractFactory
 
         /** @var $options \Doctrine\ODM\CouchDB\Configuration */
         $configuration = $serviceLocator->get($options->getConfiguration());
+        
+        $httpClient = $this->changeConnectionOptionLogging($serviceLocator, $options->getName());
 
-        if (null !== $configuration->getLoggerCallable()) {
-            $logger = new LoggerChain();
-            $logger->addLogger($debugStackLogger);
-            $callable = $configuration->getLoggerCallable();
-            $logger->addLogger($callable[0]);
-            $configuration->setLoggerCallable(array($logger, 'log'));
-        } else {
-            $configuration->setLoggerCallable(array($debugStackLogger, 'log'));
-        }
-
-        return new CouchLoggerCollector($debugStackLogger, $options->getName());
+        return new CouchLoggerCollector($httpClient, $options->getName());
     }
+    
+    protected function changeConnectionOptionLogging(ServiceLocatorInterface $sl, $name) {
+    	$this->optionsClass = 'DoctrineCouchODMModule\Options\Connection';
+    	$options = $this->getOptions($sl, 'connection', $name);
+    	$this->optionsClass = 'DoctrineCouchODMModule\Options\CouchLoggerCollector';
+
+    	// FIXME: Improve that part of setting the logging
+    	$options->setLogging(true);
+    	$dm = $sl->get("doctrine.documentmanager.{$name}");
+    	$httpClient = $dm->getCouchDBClient()->getHttpClient();
+    	
+    	return $httpClient;
+    }
+    
+    protected $optionsClass = 'DoctrineCouchODMModule\Options\CouchLoggerCollector';
 
     /**
      * {@inheritDoc}
      */
     public function getOptionsClass()
     {
-        return 'DoctrineCouchODMModule\Options\CouchLoggerCollector';
+        return $this->optionsClass;
     }
 }

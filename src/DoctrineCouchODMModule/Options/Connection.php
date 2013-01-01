@@ -31,6 +31,10 @@ use Zend\Stdlib\AbstractOptions;
 class Connection extends AbstractOptions
 {
 
+	protected $type = 'socket';
+	
+	static protected $logging = null;
+	
     /**
      * The server with the Couch instance you want to connect to
      *
@@ -80,6 +84,47 @@ class Connection extends AbstractOptions
      */
     protected $options = array();
 
+    /**
+     *
+     * @return string
+     */
+    public function getType() {
+    	return $this->type;
+    }
+    
+    /**
+     *
+     * @param string $type
+     * @return \DoctrineCouchODMModule\Options\Connection
+     */
+    public function setType($type) {
+    	$this->type = (string) $type;
+    	return $this;
+    }
+    
+    /**
+     *
+     * @return string
+     */
+    public function getLogging() {
+    	if (self::$logging === null) {
+    		$this->setLogging(self::$logging);
+    	}
+    	return self::$logging;
+    }
+    
+    /**
+     *
+     * @param string $logging
+     * @return \DoctrineCouchODMModule\Options\Connection
+     */
+    public function setLogging($logging) {
+    	if (self::$logging === null) {
+    		self::$logging = (bool) $logging;
+    	}
+    	return $this;
+    }
+    
     /**
      *
      * @return string

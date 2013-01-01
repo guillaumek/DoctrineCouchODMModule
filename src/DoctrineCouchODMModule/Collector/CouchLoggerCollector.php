@@ -19,6 +19,8 @@
 namespace DoctrineCouchODMModule\Collector;
 
 
+use Doctrine\CouchDB\HTTP\LoggingClient;
+
 use ZendDeveloperTools\Collector\CollectorInterface;
 use ZendDeveloperTools\Collector\AutoHideInterface;
 
@@ -41,7 +43,7 @@ class CouchLoggerCollector implements CollectorInterface, AutoHideInterface
     const PRIORITY = 10;
 
     /**
-     * @var DebugStack
+     * @var LoggingClient
      */
     protected $couchLogger;
 
@@ -54,7 +56,7 @@ class CouchLoggerCollector implements CollectorInterface, AutoHideInterface
      * @param DebugStack $couchLogger
      * @param string     $name
      */
-    public function __construct(DebugStack $couchLogger, $name)
+    public function __construct(LoggingClient $couchLogger, $name)
     {
         $this->couchLogger = $couchLogger;
         $this->name = (string) $name;
@@ -88,7 +90,7 @@ class CouchLoggerCollector implements CollectorInterface, AutoHideInterface
      */
     public function canHide()
     {
-        return empty($this->couchLogger->queries);
+        return empty($this->couchLogger->requests);
     }
 
     /**
@@ -96,7 +98,7 @@ class CouchLoggerCollector implements CollectorInterface, AutoHideInterface
      */
     public function getQueryCount()
     {
-        return count($this->couchLogger->queries);
+        return count($this->couchLogger->requests);
     }
 
     /**
@@ -104,7 +106,7 @@ class CouchLoggerCollector implements CollectorInterface, AutoHideInterface
      */
     public function getQueries()
     {
-        return $this->couchLogger->queries;
+        return $this->couchLogger->requests;
     }
 
     /**
@@ -112,6 +114,6 @@ class CouchLoggerCollector implements CollectorInterface, AutoHideInterface
      */
     public function getQueryTime()
     {
-        return 0.0;
+    	return $this->couchLogger->totalDuration;
     }
 }
