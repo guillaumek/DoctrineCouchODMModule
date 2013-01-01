@@ -96,7 +96,7 @@ class CouchLoggerCollector implements CollectorInterface, AutoHideInterface
     /**
      * @return int
      */
-    public function getQueryCount()
+    public function getRequestCount()
     {
         return count($this->couchLogger->requests);
     }
@@ -104,7 +104,7 @@ class CouchLoggerCollector implements CollectorInterface, AutoHideInterface
     /**
      * @return array
      */
-    public function getQueries()
+    public function getRequests()
     {
         return $this->couchLogger->requests;
     }
@@ -112,7 +112,7 @@ class CouchLoggerCollector implements CollectorInterface, AutoHideInterface
     /**
      * @return float
      */
-    public function getQueryTime()
+    public function getRequestTime()
     {
     	return $this->couchLogger->totalDuration;
     }
