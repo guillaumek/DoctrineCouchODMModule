@@ -79,7 +79,7 @@ class Module implements
     {
         $cli = $event->getTarget();
         $cli->addCommands(array(
-            new \Doctrine\ODM\Couch\Tools\Console\Command\UpdateDesignDocCommand()
+            new \Doctrine\ODM\CouchDB\Tools\Console\Command\UpdateDesignDocCommand()
         ));
     }
 
